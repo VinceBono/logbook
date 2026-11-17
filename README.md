@@ -56,6 +56,9 @@ The agent gets two tools: `search` (when was an app or title in front) and `time
   `~/.logbook/logbook.db`. Keep it on an encrypted drive if that matters.
 - **An agent you connect can read everything in it**, and may send what it reads to its model provider.
   List only the titles you are willing to share that way.
+- **Window titles can carry instructions.** A web page chooses its own tab title, so a title the agent reads
+  may be written to steer it. logbook tells the agent to treat titles as data and cuts them to 120 characters;
+  it cannot detect steering. Leave browsers out of `title_apps` unless you need them.
 - **It samples every few seconds**, so short visits to a window can be missed and times are approximate.
 - **It sees only the window in front.** Background apps, and what you did inside an app, are not recorded.
 - **Tested with made-up records**, in CI on Windows. It has not yet been left running for days on a real PC.

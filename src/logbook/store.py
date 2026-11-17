@@ -15,7 +15,8 @@ class Store:
     # put it on an encrypted drive (BitLocker) if that matters.
     def __init__(self, path: Path):
         path.parent.mkdir(parents=True, exist_ok=True)
-        self.db = sqlite3.connect(path)
+        # the MCP server runs tools on worker threads; sqlite serializes access to one connection itself
+        self.db = sqlite3.connect(path, check_same_thread=False)
         self.db.execute(
             "CREATE TABLE IF NOT EXISTS spans (id INTEGER PRIMARY KEY, start REAL, end REAL, app TEXT, title TEXT)"
         )
