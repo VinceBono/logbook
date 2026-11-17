@@ -1,0 +1,10 @@
+# Copy to logbook.toml. Every setting is optional; with none, only app names are recorded.
+
+# Apps whose window titles are stored. Titles show document, email and web page names.
+title_apps = ["code.exe", "windowsterminal.exe"]
+
+# Apps that are not recorded at all.
+exclude_apps = ["keepass.exe", "1password.exe"]
+
+retention_days = 30
+interval_seconds = 5
